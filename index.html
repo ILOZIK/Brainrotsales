@@ -559,6 +559,7 @@
       gap: 30px;
       flex-wrap: wrap;
       align-items: center;
+      margin-bottom: 30px;
     }
 
     .contact-link {
@@ -610,8 +611,9 @@
 
     .purchase-page.active {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
+      padding-top: 40px;
     }
 
     .purchase-content {
@@ -622,6 +624,7 @@
       width: 100%;
       box-shadow: 0 8px 30px rgba(0,0,0,0.2);
       text-align: center;
+      margin-bottom: 40px;
     }
 
     .purchase-title {
@@ -729,6 +732,49 @@
       font-size: 1.05em;
     }
 
+    /* Доказательство (отзывы) */
+    .proof-section {
+      background: #e7f5ff;
+      border: 2px solid #0088cc;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 25px;
+      text-align: center;
+    }
+
+    .proof-section h4 {
+      color: #0088cc;
+      margin: 0 0 15px 0;
+      font-size: 1.2em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .proof-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #0088cc;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1em;
+      transition: all 0.2s;
+      border: 2px solid #0088cc;
+    }
+
+    .proof-link:hover {
+      background: #006ba3;
+      border-color: #006ba3;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 136, 204, 0.3);
+    }
+
     @media (max-width: 1250px) {
       .container {
         max-width: 900px;
@@ -832,7 +878,6 @@
       >
     </div>
     <select id="filterSelect" class="filter-select" onchange="applyFilter()">
-      <option value="default">По умолчанию</option>
       <option value="price-low">Цена: от дешевых к дорогим</option>
       <option value="price-high" selected>Цена: от дорогих к дешевым</option>
       <option value="stock-high">В наличии: больше всего</option>
@@ -885,7 +930,7 @@
 
 <!-- Футер с контактами -->
 <footer>
-  <h3>Связаться со мной</h3>
+  <h3 id="footerContactTitle">Связаться со мной</h3>
   <div class="contact-links">
     <a href="https://t.me/ILLIA812" target="_blank" class="contact-link telegram">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
@@ -900,12 +945,27 @@
       <span>ilozov</span>
     </a>
   </div>
+
+  <!-- Доказательство в футере -->
+  <div class="proof-section" id="footerProofSection">
+    <h4>
+      <span>✅</span>
+      <span id="footerProofTitle">Доказательство, что я не скам</span>
+    </h4>
+    <a href="https://t.me/+yJvWl-5lEYY1NjZi" target="_blank" class="proof-link" id="footerProofLink">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+      </svg>
+      <span id="footerProofLinkText">Посмотреть отзывы</span>
+    </a>
+  </div>
 </footer>
 
 <!-- Страница покупки -->
 <div id="purchasePage" class="purchase-page">
   <div class="purchase-content">
     <h1 id="purchaseTitle" class="purchase-title"></h1>
+    
     <p id="purchaseMessage" class="purchase-message"></p>
     
     <div class="contact-buttons">
@@ -929,6 +989,20 @@
     <div class="important-note" id="importantNote">
       <strong>⚠️ Обязательно пишите что хотите купить и за какую валюту</strong><br>
       (Доллары, Евро, Робуксы, Гривны)
+    </div>
+
+    <!-- Доказательство на странице покупки -->
+    <div class="proof-section" id="proofSection">
+      <h4>
+        <span>✅</span>
+        <span id="proofTitle">Доказательство, что я не скам</span>
+      </h4>
+      <a href="https://t.me/+yJvWl-5lEYY1NjZi" target="_blank" class="proof-link" id="proofLink">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+        </svg>
+        <span id="proofLinkText">Посмотреть отзывы</span>
+      </a>
     </div>
     
     <button class="back-to-product-btn" onclick="closePurchasePage()">
@@ -1112,7 +1186,6 @@
       allProducts: '🛍️ Все товары',
       favorites: '❤️ Избранное',
       searchPlaceholder: 'Поиск товаров...',
-      filterDefault: 'По умолчанию',
       filterPriceLow: 'Цена: от дешевых к дорогим',
       filterPriceHigh: 'Цена: от дорогих к дешевым',
       filterStockHigh: 'В наличии: больше всего',
@@ -1139,14 +1212,16 @@
       purchaseMessage: 'Чтобы купить этот товар<br>Напишите мне:',
       or: 'или',
       backButton: '← Назад',
-      importantNote: '<strong>⚠️ Обязательно пишите что хотите купить и за какую валюту</strong><br>(Доллары, Евро, Робуксы, Гривны)'
+      importantNote: '<strong>⚠️ Обязательно пишите что хотите купить и за какую валюту</strong><br>(Доллары, Евро, Робуксы, Гривны)',
+      proofTitle: 'Доказательство, что я не скам',
+      proofLinkText: 'Посмотреть отзывы',
+      proofLink: 'https://t.me/+yJvWl-5lEYY1NjZi'
     },
     en: {
       header: 'Brainrots in Stock',
       allProducts: '🛍️ All Products',
       favorites: '❤️ Favorites',
       searchPlaceholder: 'Search products...',
-      filterDefault: 'Default',
       filterPriceLow: 'Price: Low to High',
       filterPriceHigh: 'Price: High to Low',
       filterStockHigh: 'Stock: Most Available',
@@ -1173,7 +1248,10 @@
       purchaseMessage: 'To buy this product<br>Contact me:',
       or: 'or',
       backButton: '← Back',
-      importantNote: '<strong>⚠️ Please specify what you want to buy and which currency</strong><br>(Dollars, Euros, Robux, Hryvnias)'
+      importantNote: '<strong>⚠️ Please specify what you want to buy and which currency</strong><br>(Dollars, Euros, Robux, Hryvnias)',
+      proofTitle: 'Proof that I am not a scammer',
+      proofLinkText: 'View Reviews',
+      proofLink: 'https://t.me/+-EJRiOdvXzU1MWZi'
     }
   };
 
@@ -1218,17 +1296,19 @@
     
     // Фильтр
     const filterSelect = document.getElementById('filterSelect');
-    filterSelect.options[0].text = t.filterDefault;
-    filterSelect.options[1].text = t.filterPriceLow;
-    filterSelect.options[2].text = t.filterPriceHigh;
-    filterSelect.options[3].text = t.filterStockHigh;
-    filterSelect.options[4].text = t.filterStockLow;
+    filterSelect.options[0].text = t.filterPriceLow;
+    filterSelect.options[1].text = t.filterPriceHigh;
+    filterSelect.options[2].text = t.filterStockHigh;
+    filterSelect.options[3].text = t.filterStockLow;
     
     // Страница товара
     document.querySelector('.back-button').innerHTML = t.backToCatalog;
     
     // Футер
-    document.querySelector('footer h3').textContent = t.contactMe;
+    document.getElementById('footerContactTitle').textContent = t.contactMe;
+    document.getElementById('footerProofTitle').textContent = t.proofTitle;
+    document.getElementById('footerProofLinkText').textContent = t.proofLinkText;
+    document.getElementById('footerProofLink').href = t.proofLink;
   }
 
   // ========================================
@@ -1292,9 +1372,6 @@
         break;
       case 'stock-low':
         sortedProducts.sort((a, b) => a.stock - b.stock);
-        break;
-      default:
-        // По умолчанию - оригинальный порядок
         break;
     }
 
@@ -1648,16 +1725,28 @@
     const product = products[currentProductIndex];
     const t = translations[currentLang];
     
-    // Устанавливаем название товара и сообщение
+    // Устанавливаем НАЗВАНИЕ ТОВАРА
     document.getElementById('purchaseTitle').textContent = product.title;
+    
+    // Устанавливаем сообщение
     document.getElementById('purchaseMessage').innerHTML = t.purchaseMessage;
     document.getElementById('orDivider').textContent = t.or;
     document.getElementById('backButtonText').textContent = t.backButton;
     document.getElementById('importantNote').innerHTML = t.importantNote;
     
+    // Обновляем доказательство на странице покупки
+    document.getElementById('proofTitle').textContent = t.proofTitle;
+    document.getElementById('proofLinkText').textContent = t.proofLinkText;
+    document.getElementById('proofLink').href = t.proofLink;
+    
     // Показываем страницу покупки
     document.getElementById('purchasePage').classList.add('active');
-    window.scrollTo(0, 0);
+    
+    // ВАЖНО: Прокручиваем в самый верх страницы покупки
+    setTimeout(() => {
+      const purchasePage = document.getElementById('purchasePage');
+      purchasePage.scrollTop = 0;
+    }, 0);
   }
 
   function closePurchasePage() {
